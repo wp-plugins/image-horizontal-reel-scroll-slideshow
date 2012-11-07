@@ -1,6 +1,6 @@
 <!--
  *     Image horizontal reel scroll slideshow
- *     Copyright (C) 2011  www.gopiplus.com
+ *     Copyright (C) 2011 - 2013 www.gopiplus.com
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -196,7 +196,7 @@
   </div>
   <table width="100%">
     <tr>
-      <td align="right"><input name="text_management" lang="text_management" class="button-primary" onClick="location.href='options-general.php?page=image-horizontal-reel-scroll-slideshow/image-management.php'" value="Go to - Image Management" type="button" />
+      <td align="right" height="30"><input name="text_management" lang="text_management" class="button-primary" onClick="location.href='options-general.php?page=image-horizontal-reel-scroll-slideshow/image-management.php'" value="Go to - Image Management" type="button" />
         <input name="setting_management" lang="setting_management" class="button-primary" onClick="location.href='options-general.php?page=image-horizontal-reel-scroll-slideshow/image-horizontal-reel-scroll-slideshow.php'" value="Go to - Gallery Setting" type="button" />
 		<input name="Help1" lang="publish" class="button-primary" onclick="Ihrss_help()" value="Help" type="button" />
       </td>

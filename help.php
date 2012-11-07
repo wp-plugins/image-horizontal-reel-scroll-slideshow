@@ -11,5 +11,5 @@
   <li>Add directly in the theme</li>
   <li>short code for pages and posts</li>
   </ol>
-  Check official website <a href="http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/" target="_blank">for more information</a>
+  Check official website for more information <a href="http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/" target="_blank">click here</a>
 </div>

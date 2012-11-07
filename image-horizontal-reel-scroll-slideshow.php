@@ -5,7 +5,7 @@ Plugin Name: Image horizontal reel scroll slideshow
 Plugin URI: http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 Description: Image horizontal reel scroll slideshow lets showcase images in a horizontal move style. This slideshow will pause on mouse over. The speed of the plugin gallery is customizable.
 Author: Gopi.R
-Version: 9.0
+Version: 9.1
 Author URI: http://www.gopiplus.com/work/
 Donate link: http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 Tags: Horizontal, Image, Reel, Scroll, Slideshow, Gallery
