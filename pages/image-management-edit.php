@@ -115,10 +115,10 @@ if ($Ihrss_error_found == FALSE && strlen($Ihrss_success) > 0)
 	<form name="Ihrss_form" method="post" action="#" onsubmit="return Ihrss_submit()"  >
       <h3>Update image details</h3>
       <label for="tag-image">Enter image path</label>
-      <input name="Ihrss_path" type="text" id="Ihrss_path" value="<?php echo $form['Ihrss_path']; ?>" size="125" />
+      <input name="Ihrss_path" type="text" id="Ihrss_path" value="<?php echo esc_html(stripslashes($form['Ihrss_path'])); ?>" size="125" />
       <p>Where is the picture located on the internet</p>
       <label for="tag-link">Enter target link</label>
-      <input name="Ihrss_link" type="text" id="Ihrss_link" value="<?php echo $form['Ihrss_link']; ?>" size="125" />
+      <input name="Ihrss_link" type="text" id="Ihrss_link" value="<?php echo esc_html(stripslashes($form['Ihrss_link'])); ?>" size="125" />
       <p>When someone clicks on the picture, where do you want to send them</p>
       <label for="tag-target">Enter target option</label>
       <select name="Ihrss_target" id="Ihrss_target">
@@ -129,7 +129,7 @@ if ($Ihrss_error_found == FALSE && strlen($Ihrss_success) > 0)
       </select>
       <p>Do you want to open link in new window?</p>
       <label for="tag-title">Enter image reference</label>
-      <input name="Ihrss_title" type="text" id="Ihrss_title" value="<?php echo $form['Ihrss_title']; ?>" size="125" />
+      <input name="Ihrss_title" type="text" id="Ihrss_title" value="<?php echo esc_html(stripslashes($form['Ihrss_title'])); ?>" size="125" />
       <p>Enter image reference. This is only for reference.</p>
       <label for="tag-select-gallery-group">Select gallery type</label>
       <select name="Ihrss_type" id="Ihrss_type">
@@ -145,6 +145,17 @@ if ($Ihrss_error_found == FALSE && strlen($Ihrss_success) > 0)
         <option value='GROUP0' <?php if($form['Ihrss_type']=='GROUP0') { echo 'selected' ; } ?>>Group0</option>
 		<option value='Widget' <?php if($form['Ihrss_type']=='Widget') { echo 'selected' ; } ?>>Widget</option>
 		<option value='sample' <?php if($form['Ihrss_type']=='Sample') { echo 'selected' ; } ?>>Sample</option>
+		<option value='GROUP10' <?php if($form['Ihrss_type']=='GROUP10') { echo 'selected' ; } ?>>GROUP10</option>
+		<option value='GROUP11' <?php if($form['Ihrss_type']=='GROUP11') { echo 'selected' ; } ?>>GROUP11</option>
+		<option value='GROUP12' <?php if($form['Ihrss_type']=='GROUP12') { echo 'selected' ; } ?>>GROUP12</option>
+		<option value='GROUP13' <?php if($form['Ihrss_type']=='GROUP13') { echo 'selected' ; } ?>>GROUP13</option>
+		<option value='GROUP14' <?php if($form['Ihrss_type']=='GROUP14') { echo 'selected' ; } ?>>GROUP14</option>
+		<option value='GROUP15' <?php if($form['Ihrss_type']=='GROUP15') { echo 'selected' ; } ?>>GROUP15</option>
+		<option value='GROUP16' <?php if($form['Ihrss_type']=='GROUP16') { echo 'selected' ; } ?>>GROUP16</option>
+		<option value='GROUP17' <?php if($form['Ihrss_type']=='GROUP17') { echo 'selected' ; } ?>>GROUP17</option>
+		<option value='GROUP18' <?php if($form['Ihrss_type']=='GROUP18') { echo 'selected' ; } ?>>GROUP18</option>
+		<option value='GROUP19' <?php if($form['Ihrss_type']=='GROUP19') { echo 'selected' ; } ?>>GROUP19</option>
+		<option value='GROUP20' <?php if($form['Ihrss_type']=='GROUP20') { echo 'selected' ; } ?>>GROUP20</option>
       </select>
       <p>This is to group the images. Select your slideshow group. </p>
       <label for="tag-display-status">Display status</label>
@@ -159,9 +170,9 @@ if ($Ihrss_error_found == FALSE && strlen($Ihrss_success) > 0)
       <input name="Ihrss_id" id="Ihrss_id" type="hidden" value="">
       <input type="hidden" name="Ihrss_form_submit" value="yes"/>
       <p class="submit">
-        <input name="publish" lang="publish" class="button-primary" value="Update Details" type="submit" />
-        <input name="publish" lang="publish" class="button-primary" onclick="Ihrss_redirect()" value="Cancel" type="button" />
-        <input name="Help" lang="publish" class="button-primary" onclick="Ihrss_help()" value="Help" type="button" />
+        <input name="publish" lang="publish" class="button" value="Save Details" type="submit" />&nbsp; 
+        <input name="publish" lang="publish" class="button" onclick="Ihrss_redirect()" value="Cancel" type="button" />&nbsp; 
+        <input name="Help" lang="publish" class="button" onclick="Ihrss_help()" value="Help" type="button" />
       </p>
 	  <?php wp_nonce_field('Ihrss_form_edit'); ?>
     </form>

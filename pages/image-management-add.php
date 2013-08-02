@@ -121,6 +121,17 @@ if ($Ihrss_error_found == FALSE && strlen($Ihrss_success) > 0)
         <option value='GROUP0'>Group0</option>
 		<option value='Widget'>Widget</option>
 		<option value='Sample'>Sample</option>
+		<option value='GROUP10'>GROUP10</option>
+		<option value='GROUP11'>GROUP11</option>
+		<option value='GROUP12'>GROUP12</option>
+		<option value='GROUP13'>GROUP13</option>
+		<option value='GROUP14'>GROUP14</option>
+		<option value='GROUP15'>GROUP15</option>
+		<option value='GROUP16'>GROUP16</option>
+		<option value='GROUP17'>GROUP17</option>
+		<option value='GROUP18'>GROUP18</option>
+		<option value='GROUP19'>GROUP19</option>
+		<option value='GROUP20'>GROUP20</option>
       </select>
       <p>This is to group the images. Select your slideshow group. </p>
       <label for="tag-display-status">Display status</label>
@@ -135,9 +146,9 @@ if ($Ihrss_error_found == FALSE && strlen($Ihrss_success) > 0)
       <input name="Ihrss_id" id="Ihrss_id" type="hidden" value="">
       <input type="hidden" name="Ihrss_form_submit" value="yes"/>
       <p class="submit">
-        <input name="publish" lang="publish" class="button-primary" value="Insert Details" type="submit" />
-        <input name="publish" lang="publish" class="button-primary" onclick="Ihrss_redirect()" value="Cancel" type="button" />
-        <input name="Help" lang="publish" class="button-primary" onclick="Ihrss_help()" value="Help" type="button" />
+        <input name="publish" lang="publish" class="button" value="Save Details" type="submit" />&nbsp;  
+        <input name="publish" lang="publish" class="button" onclick="Ihrss_redirect()" value="Cancel" type="button" />&nbsp;   
+        <input name="Help" lang="publish" class="button" onclick="Ihrss_help()" value="Help" type="button" />
       </p>
 	  <?php wp_nonce_field('Ihrss_form_add'); ?>
     </form>

@@ -94,7 +94,7 @@ if (isset($_POST['frm_Ihrss_display']) && $_POST['frm_Ihrss_display'] == 'yes')
 				<tr class="<?php if ($i&1) { echo'alternate'; } else { echo ''; }?>">
 					<td align="left"><input type="checkbox" value="<?php echo $data['Ihrss_id']; ?>" name="Ihrss_group_item[]"></th>
 					<td>
-					<strong><?php echo esc_html(stripslashes($data['Ihrss_type'])); ?></strong>
+					<?php echo esc_html(stripslashes($data['Ihrss_type'])); ?>
 					<div class="row-actions">
 						<span class="edit"><a title="Edit" href="<?php echo get_option('siteurl'); ?>/wp-admin/admin.php?page=image-horizontal-reel-scroll-slideshow&amp;ac=edit&amp;did=<?php echo $data['Ihrss_id']; ?>">Edit</a> | </span>
 						<span class="trash"><a onClick="javascript:Ihrss_delete('<?php echo $data['Ihrss_id']; ?>')" href="javascript:void(0);">Delete</a></span> 

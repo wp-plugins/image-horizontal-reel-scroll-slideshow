@@ -68,20 +68,40 @@
       
 	  <label for="tag-height">Enter slideshow gap</label>
       <input name="Ihrss_slideshowgap" id="Ihrss_slideshowgap" type="text" value="<?php echo $Ihrss_slideshowgap; ?>" />
-      <p>This is pixels gap between each image slideshow. (Example: 5)</p>
+      <p>This is pixels gap between each image in slideshow. (Example: 5)</p>
 	  
 	  <label for="tag-height">Enter random display</label>
       <input name="Ihrss_random" id="Ihrss_random" type="text" value="<?php echo $Ihrss_random; ?>" />
       <p>This option is to retrieve the images in random order. (Enter: Yes/No Only)</p>
 	  
-	  <label for="tag-height">Enter gallery group (Type)</label>
-      <input name="Ihrss_type" id="Ihrss_type" type="text" value="<?php echo $Ihrss_type; ?>" />
-      <p>This field is to group the images. Enter your group name to fetch the images for widget. (Example: GROUP1)</p>
-      <input name="Ihrss_submit" id="Ihrss_submit" class="button-primary" value="Submit" type="submit" />
-	  <input name="publish" lang="publish" class="button-primary" onclick="Ihrss_redirect()" value="Cancel" type="button" />
-        <input name="Help" lang="publish" class="button-primary" onclick="Ihrss_help()" value="Help" type="button" />
+	  <label for="tag-height">Select gallery group (Type)</label>
+      <!--<input name="Ihrss_type" id="Ihrss_type" type="text" value="<?php //echo $Ihrss_type; ?>" />-->
+	  <select name="Ihrss_type" id="Ihrss_type">
+	  <?php
+		$sSql = "SELECT distinct(Ihrss_type) as Ihrss_type FROM `".WP_Ihrss_TABLE."` order by Ihrss_type";
+		$myDistinctData = array();
+		$arrDistinctDatas = array();
+		$thisselected = "";
+		$myDistinctData = $wpdb->get_results($sSql, ARRAY_A);
+		foreach ($myDistinctData as $DistinctData)
+		{
+			if(strtoupper($DistinctData['Ihrss_type']) == strtoupper($Ihrss_type)) 
+			{ 
+				$thisselected = "selected='selected'" ; 
+			}
+			?><option value='<?php echo strtoupper($DistinctData['Ihrss_type']); ?>' <?php echo $thisselected; ?>><?php echo strtoupper($DistinctData['Ihrss_type']); ?></option><?php
+			$thisselected = "";
+		}
+		?>
+		</select>
+      <p>This field is to group the images. Select your group name to fetch the images for widget. (Example: GROUP1)</p>
+	  <p class="submit">
+		<input name="Ihrss_submit" id="Ihrss_submit" class="button" value="Submit" type="submit" />&nbsp; 
+		<input name="publish" lang="publish" class="button" onclick="Ihrss_redirect()" value="Cancel" type="button" />&nbsp;
+		<input name="Help" lang="publish" class="button" onclick="Ihrss_help()" value="Help" type="button" />
+	 </p>
 	  <?php wp_nonce_field('Ihrss_form_setting'); ?>
     </form>
   </div>
-  <br /><p class="description"><?php echo WP_Ihrss_LINK; ?></p>
+  <p class="description"><?php echo WP_Ihrss_LINK; ?></p>
 </div>

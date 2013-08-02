@@ -6,7 +6,7 @@ Plugin URI: http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horiz
 Tags: Horizontal, Image, Reel, Scroll, Slideshow, Gallery
 Requires at least: 3.4
 Tested up to: 3.6
-Stable tag: 10.0
+Stable tag: 10.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -101,6 +101,11 @@ http://www.gopiplus.com/work/2011/04/25/wordpress-plugin-up-down-image-slideshow
 
 == Upgrade Notice ==
 
+= 10.1 =
+
+1. Special character issue has been fixed.
+2. Error in widget link has been fixed.
+
 = 10.0 =
 
 Tested up to 3.6
@@ -154,6 +159,11 @@ Target problem solved.
 First version.
 
 == Changelog ==
+
+= 10.1 =
+
+1. Special character issue has been fixed.
+2. Error in widget link has been fixed.
 
 = 10.0 =
 
