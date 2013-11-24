@@ -1,11 +1,10 @@
 <?php
-
 /*
 Plugin Name: Image horizontal reel scroll slideshow
 Plugin URI: http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 Description: Image horizontal reel scroll slideshow lets showcase images in a horizontal move style. This slideshow will pause on mouse over. The speed of the plugin gallery is customizable.
 Author: Gopi.R
-Version: 10.1
+Version: 11.0
 Author URI: http://www.gopiplus.com/work/
 Donate link: http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 Tags: Horizontal, Image, Reel, Scroll, Slideshow, Gallery
@@ -16,9 +15,19 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 global $wpdb, $wp_version;
 define("WP_Ihrss_TABLE", $wpdb->prefix . "Ihrss_plugin");
 define("WP_Ihrss_UNIQUE_NAME", "Ihrss");
-define("WP_Ihrss_TITLE", "Image horizontal reel scroll slideshow");
-define('WP_Ihrss_LINK', 'Check official website for more information <a target="_blank" href="http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/">click here</a>');
 define('WP_Ihrss_FAV', 'http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/');
+
+if ( ! defined( 'WP_IHRSS_BASENAME' ) )
+	define( 'WP_IHRSS_BASENAME', plugin_basename( __FILE__ ) );
+	
+if ( ! defined( 'WP_IHRSS_PLUGIN_NAME' ) )
+	define( 'WP_IHRSS_PLUGIN_NAME', trim( dirname( WP_IHRSS_BASENAME ), '/' ) );
+	
+if ( ! defined( 'WP_IHRSS_PLUGIN_URL' ) )
+	define( 'WP_IHRSS_PLUGIN_URL', WP_PLUGIN_URL . '/' . WP_IHRSS_PLUGIN_NAME );
+	
+if ( ! defined( 'WP_IHRSS_ADMIN_URL' ) )
+	define( 'WP_IHRSS_ADMIN_URL', get_option('siteurl') . '/wp-admin/options-general.php?page=image-horizontal-reel-scroll-slideshow' );
 
 function Ihrss() 
 {
@@ -33,10 +42,10 @@ function Ihrss()
 	$Ihrss_random = get_option('Ihrss_random');
 	$Ihrss_type = get_option('Ihrss_type');
 	
-	if(!is_numeric(@$Ihrss_sliderwidth)) { @$Ihrss_sliderwidth = 500; }
-	if(!is_numeric(@$Ihrss_sliderheight)) { @$Ihrss_sliderheight = 170; }
-	if(!is_numeric(@$Ihrss_slidespeed)) { @$Ihrss_slidespeed = 1; }
-	if(!is_numeric(@$Ihrss_slideshowgap)) { @$Ihrss_slideshowgap = 5; }
+	if(!is_numeric($Ihrss_sliderwidth)) { $Ihrss_sliderwidth = 500; }
+	if(!is_numeric($Ihrss_sliderheight)) { $Ihrss_sliderheight = 170; }
+	if(!is_numeric($Ihrss_slidespeed)) { $Ihrss_slidespeed = 1; }
+	if(!is_numeric($Ihrss_slideshowgap)) { $Ihrss_slideshowgap = 5; }
 	
 	$sSql = "select Ihrss_path,Ihrss_link,Ihrss_target,Ihrss_title from ".WP_Ihrss_TABLE." where 1=1";
 	if($Ihrss_type <> ""){ $sSql = $sSql . " and Ihrss_type='".$Ihrss_type."'"; }
@@ -68,12 +77,12 @@ function Ihrss()
 			var IHRSS_IMGGAP = " ";
 			var IHRSS_PIXELGAP = <?php echo $Ihrss_slideshowgap; ?>;
 			</script>
-			<script language="JavaScript1.2" src="<?php echo get_option('siteurl') ?>/wp-content/plugins/image-horizontal-reel-scroll-slideshow/image-horizontal-reel-scroll-slideshow.js"></script>
+			<script language="JavaScript1.2" src="<?php echo WP_IHRSS_PLUGIN_URL; ?>/image-horizontal-reel-scroll-slideshow.js"></script>
 		<?php
 	}	
 	else
 	{
-		echo "No images available in this Gallery Type. Please check admin setting.";
+		_e('No images available in this Gallery Type. Please check admin setting.', 'ihrss');;
 	}
 }
 
@@ -83,22 +92,22 @@ function Ihrss_install()
 	
 	if($wpdb->get_var("show tables like '". WP_Ihrss_TABLE . "'") != WP_Ihrss_TABLE) 
 	{
-		$sSql = "CREATE TABLE IF NOT EXISTS `". WP_Ihrss_TABLE . "` (";
-		$sSql = $sSql . "`Ihrss_id` INT NOT NULL AUTO_INCREMENT ,";
-		$sSql = $sSql . "`Ihrss_path` TEXT CHARACTER SET utf8 COLLATE utf8_bin NOT NULL ,";
-		$sSql = $sSql . "`Ihrss_link` TEXT CHARACTER SET utf8 COLLATE utf8_bin NOT NULL ,";
-		$sSql = $sSql . "`Ihrss_target` VARCHAR( 50 ) NOT NULL ,";
-		$sSql = $sSql . "`Ihrss_title` VARCHAR( 500 ) NOT NULL ,";
-		$sSql = $sSql . "`Ihrss_order` INT NOT NULL ,";
-		$sSql = $sSql . "`Ihrss_status` VARCHAR( 10 ) NOT NULL ,";
-		$sSql = $sSql . "`Ihrss_type` VARCHAR( 100 ) NOT NULL ,";
-		$sSql = $sSql . "`Ihrss_extra1` VARCHAR( 100 ) NOT NULL ,";
-		$sSql = $sSql . "`Ihrss_extra2` VARCHAR( 100 ) NOT NULL ,";
-		$sSql = $sSql . "`Ihrss_date` datetime NOT NULL default '0000-00-00 00:00:00' ,";
-		$sSql = $sSql . "PRIMARY KEY ( `Ihrss_id` )";
-		$sSql = $sSql . ")";
+		$sSql = "CREATE TABLE IF NOT EXISTS ". WP_Ihrss_TABLE . " (";
+		$sSql = $sSql . "Ihrss_id INT NOT NULL AUTO_INCREMENT ,";
+		$sSql = $sSql . "Ihrss_path TEXT CHARACTER SET utf8 COLLATE utf8_bin NOT NULL ,";
+		$sSql = $sSql . "Ihrss_link TEXT CHARACTER SET utf8 COLLATE utf8_bin NOT NULL ,";
+		$sSql = $sSql . "Ihrss_target VARCHAR( 50 ) NOT NULL ,";
+		$sSql = $sSql . "Ihrss_title VARCHAR( 500 ) NOT NULL ,";
+		$sSql = $sSql . "Ihrss_order INT NOT NULL ,";
+		$sSql = $sSql . "Ihrss_status VARCHAR( 10 ) NOT NULL ,";
+		$sSql = $sSql . "Ihrss_type VARCHAR( 100 ) NOT NULL ,";
+		$sSql = $sSql . "Ihrss_extra1 VARCHAR( 100 ) NOT NULL ,";
+		$sSql = $sSql . "Ihrss_extra2 VARCHAR( 100 ) NOT NULL ,";
+		$sSql = $sSql . "Ihrss_date datetime NOT NULL default '0000-00-00 00:00:00' ,";
+		$sSql = $sSql . "PRIMARY KEY ( Ihrss_id )";
+		$sSql = $sSql . ") ENGINE=MyISAM  DEFAULT CHARSET=utf8;";
 		$wpdb->query($sSql);
-		
+	
 		$IsSql = "INSERT INTO `". WP_Ihrss_TABLE . "` (`Ihrss_path`, `Ihrss_link`, `Ihrss_target` , `Ihrss_title` , `Ihrss_order` , `Ihrss_status` , `Ihrss_type` , `Ihrss_date`)"; 
 		
 		$sSql = $IsSql . " VALUES ('".get_option('siteurl')."/wp-content/plugins/image-horizontal-reel-scroll-slideshow/images/250x167_1.jpg', '#', '_blank', 'Image 1', '1', 'YES', 'GROUP1', '0000-00-00 00:00:00');";
@@ -112,7 +121,6 @@ function Ihrss_install()
 		
 		$sSql = $IsSql . " VALUES ('".get_option('siteurl')."/wp-content/plugins/image-horizontal-reel-scroll-slideshow/images/250x167_4.jpg', '#', '_blank', 'Image 4', '2', 'YES', 'Widget', '0000-00-00 00:00:00');";
 		$wpdb->query($sSql);
-
 	}
 	add_option('Ihrss_title', "Horizontal Slideshow");
 	add_option('Ihrss_sliderwidth', "600");
@@ -126,8 +134,11 @@ function Ihrss_install()
 
 function Ihrss_control() 
 {
-	echo '<p>Image horizontal reel scroll slideshow.<br><br> To change the setting goto <b>Image horizontal reel scroll slideshow</b> link under Settings menu. ';
-	echo '<a href="options-general.php?page=image-horizontal-reel-scroll-slideshow">click here</a></p>';
+	echo '<p><b>';
+	 _e('Image horizontal reel scroll slideshow', 'ihrss');
+	echo '.</b> ';
+	_e('Check official website for more information', 'ihrss');
+	?> <a target="_blank" href="<?php echo WP_Ihrss_FAV; ?>"><?php _e('click here', 'ihrss'); ?></a></p><?php
 }
 
 function Ihrss_widget($args) 
@@ -171,7 +182,7 @@ function Ihrss_shortcode( $atts )
 	$Ihrss_package = "";
 	
 	// New code
-	//[ihrss-gallery type="gallery1" w="600" h="170" speed="1" bgcolor="#FFFFFF" gap="5" random="YES"]
+	//[ihrss-gallery type="GROUP1" w="600" h="170" speed="1" bgcolor="#FFFFFF" gap="5" random="YES"]
 	if ( ! is_array( $atts ) ) { return ''; }
 	$Ihrss_type = $atts['type'];
 	$Ihrss_sliderwidth = $atts['w'];
@@ -181,10 +192,10 @@ function Ihrss_shortcode( $atts )
 	$Ihrss_slideshowgap = $atts['gap'];
 	$Ihrss_random = $atts['random'];
 
-	if(!is_numeric(@$Ihrss_sliderwidth)) { @$Ihrss_sliderwidth = 250 ;}
-	if(!is_numeric(@$Ihrss_sliderheight)) { @$Ihrss_sliderheight = 200; }
-	if(!is_numeric(@$Ihrss_slidespeed)) { @$Ihrss_slidespeed = 1; }
-	if(!is_numeric(@$Ihrss_slideshowgap)) { @$Ihrss_slideshowgap = 5; }
+	if(!is_numeric($Ihrss_sliderwidth)) { $Ihrss_sliderwidth = 250 ;}
+	if(!is_numeric($Ihrss_sliderheight)) { $Ihrss_sliderheight = 200; }
+	if(!is_numeric($Ihrss_slidespeed)) { $Ihrss_slidespeed = 1; }
+	if(!is_numeric($Ihrss_slideshowgap)) { $Ihrss_slideshowgap = 5; }
 	
 	$sSql = "select Ihrss_path,Ihrss_link,Ihrss_target,Ihrss_title from ".WP_Ihrss_TABLE." where 1=1";
 	if($Ihrss_type <> ""){ $sSql = $sSql . " and Ihrss_type='".$Ihrss_type."'"; }
@@ -222,7 +233,7 @@ function Ihrss_shortcode( $atts )
 	}	
 	else
 	{
-		$Ihrss = $Ihrss ."No images available in this Gallery Type. Please check admin setting.";
+		$Ihrss = $Ihrss . __('No images available in this Gallery Type. Please check admin setting.', 'ihrss');
 	}
 	return $Ihrss;
 }
@@ -231,8 +242,8 @@ function Ihrss_add_to_menu()
 {
 	if (is_admin()) 
 	{
-		add_options_page('Image horizontal reel scroll slideshow', 'Image horizontal reel scroll slideshow', 'manage_options', "image-horizontal-reel-scroll-slideshow", 'Ihrss_admin_options' );
-		//add_options_page('Image horizontal reel scroll slideshow', '', 'manage_options', "image-horizontal-reel-scroll-slideshow/image-management.php",'' );
+		add_options_page(__('Image horizontal reel scroll slideshow', 'ihrss'), 
+							__('Image horizontal reel scroll slideshow', 'ihrss'), 'manage_options', "image-horizontal-reel-scroll-slideshow", 'Ihrss_admin_options' );
 	}
 }
 
@@ -240,12 +251,12 @@ function Ihrss_init()
 {
 	if(function_exists('wp_register_sidebar_widget')) 
 	{
-		wp_register_sidebar_widget('Image-horizontal-reel-scroll-slideshow', 'Image horizontal reel scroll slideshow', 'Ihrss_widget');
+		wp_register_sidebar_widget('Image-horizontal-reel-scroll-slideshow', __('Image horizontal reel scroll slideshow', 'ihrss'), 'Ihrss_widget');
 	}
 	
 	if(function_exists('wp_register_widget_control')) 
 	{
-		wp_register_widget_control('Image-horizontal-reel-scroll-slideshow', array('Image horizontal reel scroll slideshow', 'widgets'), 'Ihrss_control');
+		wp_register_widget_control('Image-horizontal-reel-scroll-slideshow', array(__('Image horizontal reel scroll slideshow', 'ihrss'), 'widgets'), 'Ihrss_control');
 	} 
 }
 
@@ -254,6 +265,12 @@ function Ihrss_deactivation()
 	// No action required.
 }
 
+function Ihrss_textdomain() 
+{
+	  load_plugin_textdomain( 'ihrss', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+}
+
+add_action('plugins_loaded', 'Ihrss_textdomain');
 add_action('admin_menu', 'Ihrss_add_to_menu');
 add_action("plugins_loaded", "Ihrss_init");
 register_activation_hook(__FILE__, 'Ihrss_install');

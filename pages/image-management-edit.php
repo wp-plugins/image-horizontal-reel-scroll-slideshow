@@ -13,7 +13,7 @@ $result = $wpdb->get_var($sSql);
 
 if ($result != '1')
 {
-	?><div class="error fade"><p><strong>Oops, selected details doesn't exist.</strong></p></div><?php
+	?><div class="error fade"><p><strong><?php _e('Oops, selected details doesnt exist.', 'ihrss'); ?></strong></p></div><?php
 }
 else
 {
@@ -52,14 +52,14 @@ if (isset($_POST['Ihrss_form_submit']) && $_POST['Ihrss_form_submit'] == 'yes')
 	$form['Ihrss_path'] = isset($_POST['Ihrss_path']) ? $_POST['Ihrss_path'] : '';
 	if ($form['Ihrss_path'] == '')
 	{
-		$Ihrss_errors[] = __('Please enter the image path.', WP_Ihrss_UNIQUE_NAME);
+		$Ihrss_errors[] = __('Enter image path', 'ihrss');
 		$Ihrss_error_found = TRUE;
 	}
 
 	$form['Ihrss_link'] = isset($_POST['Ihrss_link']) ? $_POST['Ihrss_link'] : '';
 	if ($form['Ihrss_link'] == '')
 	{
-		$Ihrss_errors[] = __('Please enter the target link.', WP_Ihrss_UNIQUE_NAME);
+		$Ihrss_errors[] = __('Enter target link', 'ihrss');
 		$Ihrss_error_found = TRUE;
 	}
 	
@@ -86,8 +86,7 @@ if (isset($_POST['Ihrss_form_submit']) && $_POST['Ihrss_form_submit'] == 'yes')
 				array($form['Ihrss_path'], $form['Ihrss_link'], $form['Ihrss_target'], $form['Ihrss_title'], $form['Ihrss_order'], $form['Ihrss_status'], $form['Ihrss_type'], $did)
 			);
 		$wpdb->query($sSql);
-		
-		$Ihrss_success = 'Image details was successfully updated.';
+		$Ihrss_success = __('Image details was successfully updated.', 'ihrss');
 	}
 }
 
@@ -103,35 +102,36 @@ if ($Ihrss_error_found == FALSE && strlen($Ihrss_success) > 0)
 {
 ?>
   <div class="updated fade">
-    <p><strong><?php echo $Ihrss_success; ?> <a href="<?php echo get_option('siteurl'); ?>/wp-admin/admin.php?page=image-horizontal-reel-scroll-slideshow">Click here</a> to view the details</strong></p>
+    <p><strong><?php echo $Ihrss_success; ?> <a href="<?php echo WP_IHRSS_ADMIN_URL; ?>"><?php _e('Click here', 'ihrss'); ?></a> 
+	 <?php _e('to view the details', 'ihrss'); ?></strong></p>
   </div>
   <?php
 }
 ?>
-<script language="JavaScript" src="<?php echo get_option('siteurl'); ?>/wp-content/plugins/image-horizontal-reel-scroll-slideshow/pages/setting.js"></script>
+<script language="JavaScript" src="<?php echo WP_IHRSS_PLUGIN_URL; ?>/pages/setting.js"></script>
 <div class="form-wrap">
 	<div id="icon-edit" class="icon32 icon32-posts-post"><br></div>
-	<h2><?php echo WP_Ihrss_TITLE; ?></h2>
+	<h2><?php _e('Image horizontal reel scroll slideshow', 'ihrss'); ?></h2>
 	<form name="Ihrss_form" method="post" action="#" onsubmit="return Ihrss_submit()"  >
-      <h3>Update image details</h3>
-      <label for="tag-image">Enter image path</label>
+      <h3><?php _e('Update image details', 'ihrss'); ?></h3>
+      <label for="tag-image"><?php _e('Enter image path', 'ihrss'); ?></label>
       <input name="Ihrss_path" type="text" id="Ihrss_path" value="<?php echo esc_html(stripslashes($form['Ihrss_path'])); ?>" size="125" />
-      <p>Where is the picture located on the internet</p>
-      <label for="tag-link">Enter target link</label>
+      <p><?php _e('Where is the picture located on the internet', 'ihrss'); ?></p>
+      <label for="tag-link"><?php _e('Enter target link', 'ihrss'); ?></label>
       <input name="Ihrss_link" type="text" id="Ihrss_link" value="<?php echo esc_html(stripslashes($form['Ihrss_link'])); ?>" size="125" />
-      <p>When someone clicks on the picture, where do you want to send them</p>
-      <label for="tag-target">Enter target option</label>
+      <p><?php _e('When someone clicks on the picture, where do you want to send them', 'ihrss'); ?></p>
+      <label for="tag-target"><?php _e('Enter target option', 'ihrss'); ?></label>
       <select name="Ihrss_target" id="Ihrss_target">
         <option value='_blank' <?php if($form['Ihrss_target']=='_blank') { echo 'selected' ; } ?>>_blank</option>
         <option value='_parent' <?php if($form['Ihrss_target']=='_parent') { echo 'selected' ; } ?>>_parent</option>
         <option value='_self' <?php if($form['Ihrss_target']=='_self') { echo 'selected' ; } ?>>_self</option>
         <option value='_new' <?php if($form['Ihrss_target']=='_new') { echo 'selected' ; } ?>>_new</option>
       </select>
-      <p>Do you want to open link in new window?</p>
-      <label for="tag-title">Enter image reference</label>
+      <p><?php _e('Do you want to open link in new window?', 'ihrss'); ?></p>
+      <label for="tag-title"><?php _e('Enter image reference', 'ihrss'); ?></label>
       <input name="Ihrss_title" type="text" id="Ihrss_title" value="<?php echo esc_html(stripslashes($form['Ihrss_title'])); ?>" size="125" />
-      <p>Enter image reference. This is only for reference.</p>
-      <label for="tag-select-gallery-group">Select gallery type</label>
+      <p><?php _e('Enter image reference. This is only for reference.', 'ihrss'); ?></p>
+      <label for="tag-select-gallery-group"><?php _e('Select gallery type', 'ihrss'); ?></label>
       <select name="Ihrss_type" id="Ihrss_type">
         <option value='GROUP1' <?php if($form['Ihrss_type']=='GROUP1') { echo 'selected' ; } ?>>Group1</option>
         <option value='GROUP2' <?php if($form['Ihrss_type']=='GROUP2') { echo 'selected' ; } ?>>Group2</option>
@@ -157,25 +157,28 @@ if ($Ihrss_error_found == FALSE && strlen($Ihrss_success) > 0)
 		<option value='GROUP19' <?php if($form['Ihrss_type']=='GROUP19') { echo 'selected' ; } ?>>GROUP19</option>
 		<option value='GROUP20' <?php if($form['Ihrss_type']=='GROUP20') { echo 'selected' ; } ?>>GROUP20</option>
       </select>
-      <p>This is to group the images. Select your slideshow group. </p>
-      <label for="tag-display-status">Display status</label>
+      <p><?php _e('This is to group the images. Select your slideshow group.', 'ihrss'); ?></p>
+      <label for="tag-display-status"><?php _e('Display status', 'ihrss'); ?></label>
       <select name="Ihrss_status" id="Ihrss_status">
         <option value='YES' <?php if($form['Ihrss_status']=='YES') { echo 'selected' ; } ?>>Yes</option>
         <option value='NO' <?php if($form['Ihrss_status']=='NO') { echo 'selected' ; } ?>>No</option>
       </select>
-      <p>Do you want the picture to show in your galler?</p>
-      <label for="tag-display-order">Display order</label>
+      <p><?php _e('Do you want the picture to show in your galler?', 'ihrss'); ?></p>
+      <label for="tag-display-order"><?php _e('Display order', 'ihrss'); ?></label>
       <input name="Ihrss_order" type="text" id="Ihrss_order" size="10" value="<?php echo $form['Ihrss_order']; ?>" maxlength="3" />
-      <p>What order should the picture be played in. should it come 1st, 2nd, 3rd, etc.</p>
+      <p><?php _e('What order should the picture be played in. should it come 1st, 2nd, 3rd, etc.', 'ihrss'); ?></p>
       <input name="Ihrss_id" id="Ihrss_id" type="hidden" value="">
       <input type="hidden" name="Ihrss_form_submit" value="yes"/>
       <p class="submit">
-        <input name="publish" lang="publish" class="button" value="Save Details" type="submit" />&nbsp; 
-        <input name="publish" lang="publish" class="button" onclick="Ihrss_redirect()" value="Cancel" type="button" />&nbsp; 
-        <input name="Help" lang="publish" class="button" onclick="Ihrss_help()" value="Help" type="button" />
+        <input name="publish" lang="publish" class="button" value="<?php _e('Save Details', 'ihrss'); ?>" type="submit" />&nbsp; 
+        <input name="publish" lang="publish" class="button" onclick="Ihrss_redirect()" value="<?php _e('Cancel', 'ihrss'); ?>" type="button" />&nbsp; 
+        <input name="Help" lang="publish" class="button" onclick="Ihrss_help()" value="<?php _e('Help', 'ihrss'); ?>" type="button" />
       </p>
 	  <?php wp_nonce_field('Ihrss_form_edit'); ?>
     </form>
 </div>
-<p class="description"><?php echo WP_Ihrss_LINK; ?></p>
+<p class="description">
+	<?php _e('Check official website for more information', 'ihrss'); ?>
+	<a target="_blank" href="<?php echo WP_Ihrss_FAV; ?>"><?php _e('click here', 'ihrss'); ?></a>
+</p>
 </div>

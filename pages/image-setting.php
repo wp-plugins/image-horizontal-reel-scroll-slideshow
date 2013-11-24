@@ -2,8 +2,8 @@
   <div class="form-wrap">
     <div id="icon-edit" class="icon32 icon32-posts-post"><br>
     </div>
-    <h2><?php echo WP_Ihrss_TITLE; ?></h2>
-	<h3>Widget setting</h3>
+    <h2><?php _e('Image horizontal reel scroll slideshow', 'ihrss'); ?></h2>
+	<h3><?php _e('Widget setting', 'ihrss'); ?></h3>
     <?php
 	$Ihrss_title = get_option('Ihrss_title');
 	$Ihrss_sliderwidth = get_option('Ihrss_sliderwidth');
@@ -14,7 +14,7 @@
 	$Ihrss_random = get_option('Ihrss_random');
 	$Ihrss_type = get_option('Ihrss_type');
 	
-	if (@$_POST['Ihrss_submit']) 
+	if (isset($_POST['Ihrss_submit'])) 
 	{
 		//	Just security thingy that wordpress offers us
 		check_admin_referer('Ihrss_form_setting');
@@ -39,44 +39,45 @@
 		
 		?>
 		<div class="updated fade">
-			<p><strong>Details successfully updated.</strong></p>
+			<p><strong><?php _e('Details successfully updated.', 'ihrss'); ?></strong></p>
 		</div>
 		<?php
 	}
 	?>
-	<script language="JavaScript" src="<?php echo get_option('siteurl'); ?>/wp-content/plugins/image-horizontal-reel-scroll-slideshow/pages/setting.js"></script>
+	<script language="JavaScript" src="<?php echo WP_IHRSS_PLUGIN_URL; ?>/pages/setting.js"></script>
     <form name="Ihrss_form" method="post" action="">
-      <label for="tag-title">Enter widget title</label>
+      <label for="tag-title"><?php _e('Enter widget title', 'ihrss'); ?></label>
       <input name="Ihrss_title" id="Ihrss_title" type="text" value="<?php echo $Ihrss_title; ?>" size="80" />
-      <p>Enter widget title, Only for widget.</p>
+      <p><?php _e('Enter widget title, Only for widget.', 'ihrss'); ?></p>
       
-	  <label for="tag-width">Enter width</label>
+	  <label for="tag-width"><?php _e('Enter width', 'ihrss'); ?></label>
       <input name="Ihrss_sliderwidth" id="Ihrss_sliderwidth" type="text" value="<?php echo $Ihrss_sliderwidth; ?>" />
-      <p>Enter widget width, only number. (Example: 600)</p>
+      <p><?php _e('Enter widget width, only number. (Example: 600)', 'ihrss'); ?></p>
       
-	  <label for="tag-height">Enter height</label>
+	  <label for="tag-height"><?php _e('Enter height', 'ihrss'); ?></label>
       <input name="Ihrss_sliderheight" id="Ihrss_sliderheight" type="text" value="<?php echo $Ihrss_sliderheight; ?>" />
-      <p>Enter widget height, only number. (Example: 170)</p>
+      <p><?php _e('Enter widget height, only number. (Example: 170)', 'ihrss'); ?></p>
       
-	  <label for="tag-title">Enter slide speed</label>
+	  <label for="tag-title"><?php _e('Enter slide speed', 'ihrss'); ?></label>
       <input name="Ihrss_slidespeed" id="Ihrss_slidespeed" type="text" value="<?php echo $Ihrss_slidespeed; ?>" />
-      <p>This box is to manage scroller speed. (Example: 1)</p>
+      <p><?php _e('This box is to manage scroller speed. (Example: 1)', 'ihrss'); ?></p>
       
-	  <label for="tag-height">Enter slide bgcolor</label>
+	  <label for="tag-height"><?php _e('Enter slide bgcolor', 'ihrss'); ?></label>
       <input name="Ihrss_slidebgcolor" id="Ihrss_slidebgcolor" type="text" value="<?php echo $Ihrss_slidebgcolor; ?>" />
-      <p>Background color of the slideshow. (Example: #ffffff)</p>
+      <p><?php _e('Background color of the slideshow. (Example: #ffffff)', 'ihrss'); ?></p>
       
-	  <label for="tag-height">Enter slideshow gap</label>
+	  <label for="tag-height"><?php _e('Enter slideshow gap', 'ihrss'); ?></label>
       <input name="Ihrss_slideshowgap" id="Ihrss_slideshowgap" type="text" value="<?php echo $Ihrss_slideshowgap; ?>" />
-      <p>This is pixels gap between each image in slideshow. (Example: 5)</p>
+      <p><?php _e('This is pixels gap between each image in slideshow. (Example: 5)', 'ihrss'); ?></p>
 	  
-	  <label for="tag-height">Enter random display</label>
+	  <label for="tag-height"><?php _e('Enter random display', 'ihrss'); ?></label>
       <input name="Ihrss_random" id="Ihrss_random" type="text" value="<?php echo $Ihrss_random; ?>" />
-      <p>This option is to retrieve the images in random order. (Enter: Yes/No Only)</p>
+      <p><?php _e('This option is to retrieve the images in random order. (Enter: Yes/No Only)', 'ihrss'); ?></p>
 	  
-	  <label for="tag-height">Select gallery group (Type)</label>
+	  <label for="tag-height"><?php _e('Select gallery group (Type)', 'ihrss'); ?></label>
       <!--<input name="Ihrss_type" id="Ihrss_type" type="text" value="<?php //echo $Ihrss_type; ?>" />-->
 	  <select name="Ihrss_type" id="Ihrss_type">
+	  <option value="">Select</option>
 	  <?php
 		$sSql = "SELECT distinct(Ihrss_type) as Ihrss_type FROM `".WP_Ihrss_TABLE."` order by Ihrss_type";
 		$myDistinctData = array();
@@ -94,14 +95,17 @@
 		}
 		?>
 		</select>
-      <p>This field is to group the images. Select your group name to fetch the images for widget. (Example: GROUP1)</p>
+      <p><?php _e('This field is to group the images. Select your group name to fetch the images for widget. (Example: GROUP1)', 'ihrss'); ?></p>
 	  <p class="submit">
-		<input name="Ihrss_submit" id="Ihrss_submit" class="button" value="Submit" type="submit" />&nbsp; 
-		<input name="publish" lang="publish" class="button" onclick="Ihrss_redirect()" value="Cancel" type="button" />&nbsp;
-		<input name="Help" lang="publish" class="button" onclick="Ihrss_help()" value="Help" type="button" />
+		<input name="Ihrss_submit" id="Ihrss_submit" class="button" value="<?php _e('Submit', 'ihrss'); ?>" type="submit" />&nbsp; 
+		<input name="publish" lang="publish" class="button" onclick="Ihrss_redirect()" value="<?php _e('Cancel', 'ihrss'); ?>" type="button" />&nbsp;
+		<input name="Help" lang="publish" class="button" onclick="Ihrss_help()" value="<?php _e('Help', 'ihrss'); ?>" type="button" />
 	 </p>
 	  <?php wp_nonce_field('Ihrss_form_setting'); ?>
     </form>
   </div>
-  <p class="description"><?php echo WP_Ihrss_LINK; ?></p>
+  <p class="description">
+  	<?php _e('Check official website for more information', 'ihrss'); ?>
+	<a target="_blank" href="<?php echo WP_Ihrss_FAV; ?>"><?php _e('click here', 'ihrss'); ?></a>
+  </p>
 </div>

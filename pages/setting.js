@@ -69,6 +69,7 @@ function Ihrss_submit()
 	}
 }
 
+
 function Ihrss_delete(id)
 {
 	if(confirm("Do you want to delete this record?"))
@@ -76,12 +77,14 @@ function Ihrss_delete(id)
 		document.frm_Ihrss_display.action="options-general.php?page=image-horizontal-reel-scroll-slideshow&ac=del&did="+id;
 		document.frm_Ihrss_display.submit();
 	}
-}	
+}
+
 
 function Ihrss_redirect()
 {
 	window.location = "options-general.php?page=image-horizontal-reel-scroll-slideshow";
 }
+
 
 function Ihrss_help()
 {

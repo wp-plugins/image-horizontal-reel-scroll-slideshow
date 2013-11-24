@@ -72,7 +72,6 @@ ns_slide2.left=ns_slide.left+actualwidth+IHRSS_PIXELGAP
 }
 }
 
-
 if (iedom||document.layers){
 with (document){
 document.write('<table border="0" cellspacing="0" cellpadding="0"><td>')

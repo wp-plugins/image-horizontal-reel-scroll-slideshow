@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/
 Plugin URI: http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 Tags: Horizontal, Image, Reel, Scroll, Slideshow, Gallery
 Requires at least: 3.4
-Tested up to: 3.6
-Stable tag: 10.1
+Tested up to: 3.8
+Stable tag: 11.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -33,27 +33,12 @@ Image horizontal reel scroll slideshow plugin lets you showcase images in a hori
 *   Image order option available.
 *   Option to set spacing between images.
 *   Easy to change the background color of scroll.
+*   Supports localization.
 
 We have three option to install and configure this Image horizontal reel scroll slideshow plugin. 
 
 http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 
-= My other related plugins =  
-
-[Left right image slideshow gallery](http://www.gopiplus.com/work/2011/04/25/wordpress-plugin-left-right-image-slideshow-gallery/)	
-[Image horizontal reel scroll slideshow](http://www.gopiplus.com/work/2011/04/25/wordpress-plugin-up-down-image-slideshow-script/)	
-[Information reel](http://www.gopiplus.com/work/2011/04/16/wordpress-plugin-information-reel/)	
-[News announcement scroll](http://www.gopiplus.com/work/2011/01/01/news-announcement-scroll/)		
-[Continuous rss scrolling](http://www.gopiplus.com/work/2010/09/05/continuous-rss-scrolling/)		
-[Continuous announcement scroller](http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/)		
-[Vertical scroll recent post](http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-post/)		
-[Superb slideshow gallery](http://www.gopiplus.com/work/2010/10/10/superb-slideshow-gallery/)		
-[Email newsletter](http://www.gopiplus.com/work/2010/09/25/email-newsletter/)			
-		 	
-To see my all plugin : [click here](http://www.gopiplus.com/work/plugin-list/)		
-
-Tags: Horizontal, Image, Reel, Scroll, Slideshow, Gallery	
-	
 == Installation ==	
 
 = Installation Instruction & Configuration =  	
@@ -88,6 +73,8 @@ Q5. How the slide show manages the order?
 
 Q6. Is possible to load images in the random order?
 
+Q7. How to setup the plugin for network multisite website?
+
 Click the below link to see answer for all questions!			
 More info : [click to go](http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/)		
 
@@ -100,6 +87,13 @@ http://www.gopiplus.com/work/2011/04/25/wordpress-plugin-up-down-image-slideshow
 2. http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 
 == Upgrade Notice ==
+
+= 11.0 =
+
+1. Tested up to 3.8 (Beta)
+2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
+Plugin *.po file (ihrss.po) available in the languages folder. Translators Welcome.
+3. Supports network multisite website.
 
 = 10.1 =
 
@@ -159,6 +153,13 @@ Target problem solved.
 First version.
 
 == Changelog ==
+
+= 11.0 =
+
+1. Tested up to 3.8 (Beta)
+2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
+Plugin *.po file (ihrss.po) available in the languages folder. Translators Welcome.
+3. Supports network multisite website.
 
 = 10.1 =
 

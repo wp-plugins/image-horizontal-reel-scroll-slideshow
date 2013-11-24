@@ -3,7 +3,6 @@
 if (isset($_POST['frm_Ihrss_display']) && $_POST['frm_Ihrss_display'] == 'yes')
 {
 	$did = isset($_GET['did']) ? $_GET['did'] : '0';
-	
 	$Ihrss_success = '';
 	$Ihrss_success_msg = FALSE;
 	
@@ -18,7 +17,7 @@ if (isset($_POST['frm_Ihrss_display']) && $_POST['frm_Ihrss_display'] == 'yes')
 	
 	if ($result != '1')
 	{
-		?><div class="error fade"><p><strong>Oops, selected details doesn't exist (1).</strong></p></div><?php
+		?><div class="error fade"><p><strong><?php _e('Oops, selected details doesnt exist', 'ihrss'); ?></strong></p></div><?php
 	}
 	else
 	{
@@ -36,7 +35,7 @@ if (isset($_POST['frm_Ihrss_display']) && $_POST['frm_Ihrss_display'] == 'yes')
 			
 			//	Set success message
 			$Ihrss_success_msg = TRUE;
-			$Ihrss_success = __('Selected record was successfully deleted.', WP_Ihrss_UNIQUE_NAME);
+			$Ihrss_success = __('Selected record was successfully deleted.', 'ihrss');
 		}
 	}
 	
@@ -48,36 +47,47 @@ if (isset($_POST['frm_Ihrss_display']) && $_POST['frm_Ihrss_display'] == 'yes')
 ?>
 <div class="wrap">
   <div id="icon-edit" class="icon32 icon32-posts-post"></div>
-    <h2><?php echo WP_Ihrss_TITLE; ?><a class="add-new-h2" href="<?php echo get_option('siteurl'); ?>/wp-admin/admin.php?page=image-horizontal-reel-scroll-slideshow&amp;ac=add">Add New</a></h2>
+    <h2>
+	<?php _e('Image horizontal reel scroll slideshow', 'ihrss'); ?>
+	<a class="add-new-h2" href="<?php echo WP_IHRSS_ADMIN_URL; ?>&amp;ac=add"><?php _e('Add New', 'ihrss'); ?></a>
+	</h2>
     <div class="tool-box">
 	<?php
-		$sSql = "SELECT * FROM `".WP_Ihrss_TABLE."` order by Ihrss_type, Ihrss_order";
+		$pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
+		$limit = 10;
+		$offset = ($pagenum - 1) * $limit;
+		$sSql = "SELECT COUNT(Ihrss_id) AS count FROM ". WP_Ihrss_TABLE;
+		$total = 0;
+		$total = $wpdb->get_var($sSql);
+		$total = ceil( $total / $limit );
+	
+		$sSql = "SELECT * FROM `".WP_Ihrss_TABLE."` order by Ihrss_type, Ihrss_order LIMIT $offset, $limit";
 		$myData = array();
 		$myData = $wpdb->get_results($sSql, ARRAY_A);
 		?>
-		<script language="JavaScript" src="<?php echo get_option('siteurl'); ?>/wp-content/plugins/image-horizontal-reel-scroll-slideshow/pages/setting.js"></script>
+		<script language="JavaScript" src="<?php echo WP_IHRSS_PLUGIN_URL; ?>/pages/setting.js"></script>
 		<form name="frm_Ihrss_display" method="post">
       <table width="100%" class="widefat" id="straymanage">
         <thead>
           <tr>
-            <th class="check-column" scope="row" scope="col"><input type="checkbox" name="Ihrss_group_item[]" /></td>
-			<th scope="col">Type</td>
-			<th scope="col">Reference</td>
-            <th scope="col">URL</td>
-			<th scope="col">Target</td>
-            <th scope="col">Order</td>
-            <th scope="col">Display</td>
+            <th class="check-column" scope="col"><input type="checkbox" name="Ihrss_group_item[]" /></th>
+			<th scope="col"><?php _e('Image Preview', 'ihrss'); ?></th>
+			<th scope="col"><?php _e('Reference', 'ihrss'); ?></th>
+			<th scope="col"><?php _e('Type', 'ihrss'); ?></th>
+			<th scope="col"><?php _e('Target', 'ihrss'); ?></th>
+            <th scope="col"><?php _e('Order', 'ihrss'); ?></th>
+            <th scope="col"><?php _e('Display', 'ihrss'); ?></th>
           </tr>
         </thead>
 		<tfoot>
           <tr>
-            <th class="check-column" scope="row" scope="col"><input type="checkbox" name="Ihrss_group_item[]" /></td>
-			<th scope="col">Type</td>
-			<th scope="col">Reference</td>
-            <th scope="col">URL</td>
-			<th scope="col">Target</td>
-            <th scope="col">Order</td>
-            <th scope="col">Display</td>
+            <th class="check-column" scope="col"><input type="checkbox" name="Ihrss_group_item[]" /></th>
+			<th scope="col"><?php _e('Image Preview', 'ihrss'); ?></th>
+			<th scope="col"><?php _e('Reference', 'ihrss'); ?></th>
+			<th scope="col"><?php _e('Type', 'ihrss'); ?></th>
+			<th scope="col"><?php _e('Target', 'ihrss'); ?></th>
+            <th scope="col"><?php _e('Order', 'ihrss'); ?></th>
+            <th scope="col"><?php _e('Display', 'ihrss'); ?></th>
           </tr>
         </tfoot>
 		<tbody>
@@ -94,14 +104,18 @@ if (isset($_POST['frm_Ihrss_display']) && $_POST['frm_Ihrss_display'] == 'yes')
 				<tr class="<?php if ($i&1) { echo'alternate'; } else { echo ''; }?>">
 					<td align="left"><input type="checkbox" value="<?php echo $data['Ihrss_id']; ?>" name="Ihrss_group_item[]"></th>
 					<td>
-					<?php echo esc_html(stripslashes($data['Ihrss_type'])); ?>
+					<a href="<?php echo esc_html(stripslashes($data['Ihrss_path'])); ?>" target="_blank">
+					<img title="Click to view image" alt="Click to view image" src="<?php echo WP_IHRSS_PLUGIN_URL; ?>/icon.png" />					
+					</a>
 					<div class="row-actions">
-						<span class="edit"><a title="Edit" href="<?php echo get_option('siteurl'); ?>/wp-admin/admin.php?page=image-horizontal-reel-scroll-slideshow&amp;ac=edit&amp;did=<?php echo $data['Ihrss_id']; ?>">Edit</a> | </span>
-						<span class="trash"><a onClick="javascript:Ihrss_delete('<?php echo $data['Ihrss_id']; ?>')" href="javascript:void(0);">Delete</a></span> 
+						<span class="edit">
+						<a title="Edit" href="<?php echo WP_IHRSS_ADMIN_URL; ?>&amp;ac=edit&amp;did=<?php echo $data['Ihrss_id']; ?>"><?php _e('Edit', 'ihrss'); ?></a> | </span>
+						<span class="trash">
+						<a onClick="javascript:Ihrss_delete('<?php echo $data['Ihrss_id']; ?>')" href="javascript:void(0);"><?php _e('Delete', 'ihrss'); ?></a></span> 
 					</div>
 					</td>
 					<td><?php echo esc_html(stripslashes($data['Ihrss_title'])); ?></td>
-					<td><a href="<?php echo esc_html(stripslashes($data['Ihrss_path'])); ?>" target="_blank"><?php echo esc_html(stripslashes($data['Ihrss_path'])); ?></a></td>
+					<td><?php echo esc_html(stripslashes($data['Ihrss_type'])); ?></td>
 					<td><?php echo esc_html(stripslashes($data['Ihrss_target'])); ?></td>
 					<td><?php echo esc_html(stripslashes($data['Ihrss_order'])); ?></td>
 					<td><?php echo esc_html(stripslashes($data['Ihrss_status'])); ?></td>
@@ -113,21 +127,41 @@ if (isset($_POST['frm_Ihrss_display']) && $_POST['frm_Ihrss_display'] == 'yes')
 			<?php 
 			if ($displayisthere == FALSE) 
 			{ 
-				?><tr><td colspan="6" align="center">No records available.</td></tr><?php 
+				?><tr><td colspan="7" align="center"><?php _e('No records available.', 'ihrss'); ?></td></tr><?php 
 			} 
 			?>
 		</tbody>
         </table>
+		<?php
+		  $page_links = paginate_links( array(
+				'base' => add_query_arg( 'pagenum', '%#%' ),
+				'format' => '',
+				'prev_text' => __( ' &lt;&lt; ' ),
+				'next_text' => __( ' &gt;&gt; ' ),
+				'total' => $total,
+				'show_all' => False,
+				'current' => $pagenum
+			) );
+		 ?>	
 		<?php wp_nonce_field('Ihrss_form_show'); ?>
 		<input type="hidden" name="frm_Ihrss_display" value="yes"/>
-      </form>	
+      </form>
 	  <div class="tablenav">
-	  <h2>
-	  <a class="button add-new-h2" href="<?php echo get_option('siteurl'); ?>/wp-admin/admin.php?page=image-horizontal-reel-scroll-slideshow&amp;ac=add">Add New</a>
-	  <a class="button add-new-h2" href="<?php echo get_option('siteurl'); ?>/wp-admin/admin.php?page=image-horizontal-reel-scroll-slideshow&amp;ac=set">Widget setting</a>
-	  <a class="button add-new-h2" target="_blank" href="<?php echo WP_Ihrss_FAV; ?>">Help</a>
-	  </h2>
+			<div class="alignleft actions">
+			<h2>
+				<a class="button add-new-h2" href="<?php echo WP_IHRSS_ADMIN_URL; ?>&amp;ac=add"><?php _e('Add New', 'ihrss'); ?></a>
+				<a class="button add-new-h2" href="<?php echo WP_IHRSS_ADMIN_URL; ?>&amp;ac=set"><?php _e('Widget setting', 'ihrss'); ?></a>
+				<a class="button add-new-h2" href="<?php echo WP_Ihrss_FAV; ?>" target="_blank"><?php _e('Help', 'ihrss'); ?></a>
+			</h2>
+		  	</div>
+			<div class="tablenav-pages">
+				<span class="pagination-links"><?php echo $page_links; ?></span>
+			</div>
 	  </div>
-	  <br /><p class="description"><?php echo WP_Ihrss_LINK; ?></p>
+	  <br />
+	  <p class="description">
+		<?php _e('Check official website for more information', 'ihrss'); ?>
+		<a target="_blank" href="<?php echo WP_Ihrss_FAV; ?>"><?php _e('click here', 'ihrss'); ?></a>
+	  </p>
 	</div>
 </div>
