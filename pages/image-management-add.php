@@ -1,3 +1,4 @@
+<?php if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); } ?>
 <div class="wrap">
 <?php
 $Ihrss_errors = array();
@@ -111,16 +112,16 @@ if ($Ihrss_error_found == FALSE && strlen($Ihrss_success) > 0)
       <p><?php _e('Enter image reference. This is only for reference.', 'ihrss'); ?></p>
       <label for="tag-select-gallery-group"><?php _e('Select gallery type', 'ihrss'); ?></label>
       <select name="Ihrss_type" id="Ihrss_type">
-        <option value='GROUP1'>Group1</option>
-        <option value='GROUP2'>Group2</option>
-        <option value='GROUP3'>Group3</option>
-        <option value='GROUP4'>Group4</option>
-        <option value='GROUP5'>Group5</option>
-        <option value='GROUP6'>Group6</option>
-        <option value='GROUP7'>Group7</option>
-        <option value='GROUP8'>Group8</option>
-        <option value='GROUP9'>Group9</option>
-        <option value='GROUP0'>Group0</option>
+        <option value='GROUP1'>GROUP1</option>
+        <option value='GROUP2'>GROUP2</option>
+        <option value='GROUP3'>GROUP3</option>
+        <option value='GROUP4'>GROUP4</option>
+        <option value='GROUP5'>GROUP5</option>
+        <option value='GROUP6'>GROUP6</option>
+        <option value='GROUP7'>GROUP7</option>
+        <option value='GROUP8'>GROUP8</option>
+        <option value='GROUP9'>GROUP9</option>
+        <option value='GROUP0'>GROUP0</option>
 		<option value='Widget'>Widget</option>
 		<option value='Sample'>Sample</option>
 		<option value='GROUP10'>GROUP10</option>

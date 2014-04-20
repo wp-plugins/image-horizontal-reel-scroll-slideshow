@@ -1,3 +1,4 @@
+<?php if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); } ?>
 <div class="wrap">
 <?php
 $did = isset($_GET['did']) ? $_GET['did'] : '0';
@@ -83,7 +84,8 @@ if (isset($_POST['Ihrss_form_submit']) && $_POST['Ihrss_form_submit'] == 'yes')
 				`Ihrss_type` = %s
 				WHERE Ihrss_id = %d
 				LIMIT 1",
-				array($form['Ihrss_path'], $form['Ihrss_link'], $form['Ihrss_target'], $form['Ihrss_title'], $form['Ihrss_order'], $form['Ihrss_status'], $form['Ihrss_type'], $did)
+				array($form['Ihrss_path'], $form['Ihrss_link'], $form['Ihrss_target'], $form['Ihrss_title'], $form['Ihrss_order'], 
+					$form['Ihrss_status'], $form['Ihrss_type'], $did)
 			);
 		$wpdb->query($sSql);
 		$Ihrss_success = __('Image details was successfully updated.', 'ihrss');
@@ -133,16 +135,16 @@ if ($Ihrss_error_found == FALSE && strlen($Ihrss_success) > 0)
       <p><?php _e('Enter image reference. This is only for reference.', 'ihrss'); ?></p>
       <label for="tag-select-gallery-group"><?php _e('Select gallery type', 'ihrss'); ?></label>
       <select name="Ihrss_type" id="Ihrss_type">
-        <option value='GROUP1' <?php if($form['Ihrss_type']=='GROUP1') { echo 'selected' ; } ?>>Group1</option>
-        <option value='GROUP2' <?php if($form['Ihrss_type']=='GROUP2') { echo 'selected' ; } ?>>Group2</option>
-        <option value='GROUP3' <?php if($form['Ihrss_type']=='GROUP3') { echo 'selected' ; } ?>>Group3</option>
-        <option value='GROUP4' <?php if($form['Ihrss_type']=='GROUP4') { echo 'selected' ; } ?>>Group4</option>
-        <option value='GROUP5' <?php if($form['Ihrss_type']=='GROUP5') { echo 'selected' ; } ?>>Group5</option>
-        <option value='GROUP6' <?php if($form['Ihrss_type']=='GROUP6') { echo 'selected' ; } ?>>Group6</option>
-        <option value='GROUP7' <?php if($form['Ihrss_type']=='GROUP7') { echo 'selected' ; } ?>>Group7</option>
-        <option value='GROUP8' <?php if($form['Ihrss_type']=='GROUP8') { echo 'selected' ; } ?>>Group8</option>
-        <option value='GROUP9' <?php if($form['Ihrss_type']=='GROUP9') { echo 'selected' ; } ?>>Group9</option>
-        <option value='GROUP0' <?php if($form['Ihrss_type']=='GROUP0') { echo 'selected' ; } ?>>Group0</option>
+        <option value='GROUP1' <?php if($form['Ihrss_type']=='GROUP1') { echo 'selected' ; } ?>>GROUP1</option>
+        <option value='GROUP2' <?php if($form['Ihrss_type']=='GROUP2') { echo 'selected' ; } ?>>GROUP2</option>
+        <option value='GROUP3' <?php if($form['Ihrss_type']=='GROUP3') { echo 'selected' ; } ?>>GROUP3</option>
+        <option value='GROUP4' <?php if($form['Ihrss_type']=='GROUP4') { echo 'selected' ; } ?>>GROUP4</option>
+        <option value='GROUP5' <?php if($form['Ihrss_type']=='GROUP5') { echo 'selected' ; } ?>>GROUP5</option>
+        <option value='GROUP6' <?php if($form['Ihrss_type']=='GROUP6') { echo 'selected' ; } ?>>GROUP6</option>
+        <option value='GROUP7' <?php if($form['Ihrss_type']=='GROUP7') { echo 'selected' ; } ?>>GROUP7</option>
+        <option value='GROUP8' <?php if($form['Ihrss_type']=='GROUP8') { echo 'selected' ; } ?>>GROUP8</option>
+        <option value='GROUP9' <?php if($form['Ihrss_type']=='GROUP9') { echo 'selected' ; } ?>>GROUP9</option>
+        <option value='GROUP0' <?php if($form['Ihrss_type']=='GROUP0') { echo 'selected' ; } ?>>GROUP0</option>
 		<option value='Widget' <?php if($form['Ihrss_type']=='Widget') { echo 'selected' ; } ?>>Widget</option>
 		<option value='sample' <?php if($form['Ihrss_type']=='Sample') { echo 'selected' ; } ?>>Sample</option>
 		<option value='GROUP10' <?php if($form['Ihrss_type']=='GROUP10') { echo 'selected' ; } ?>>GROUP10</option>

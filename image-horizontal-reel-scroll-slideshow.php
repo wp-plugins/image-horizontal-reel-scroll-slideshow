@@ -3,8 +3,8 @@
 Plugin Name: Image horizontal reel scroll slideshow
 Plugin URI: http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 Description: Image horizontal reel scroll slideshow lets showcase images in a horizontal move style. This slideshow will pause on mouse over. The speed of the plugin gallery is customizable.
-Author: Gopi.R
-Version: 11.0
+Author: Gopi Ramasamy
+Version: 11.1
 Author URI: http://www.gopiplus.com/work/
 Donate link: http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 Tags: Horizontal, Image, Reel, Scroll, Slideshow, Gallery
@@ -110,21 +110,21 @@ function Ihrss_install()
 	
 		$IsSql = "INSERT INTO `". WP_Ihrss_TABLE . "` (`Ihrss_path`, `Ihrss_link`, `Ihrss_target` , `Ihrss_title` , `Ihrss_order` , `Ihrss_status` , `Ihrss_type` , `Ihrss_date`)"; 
 		
-		$sSql = $IsSql . " VALUES ('".get_option('siteurl')."/wp-content/plugins/image-horizontal-reel-scroll-slideshow/images/250x167_1.jpg', '#', '_blank', 'Image 1', '1', 'YES', 'GROUP1', '0000-00-00 00:00:00');";
+		$sSql = $IsSql . " VALUES ('".get_option('siteurl')."/wp-content/plugins/image-horizontal-reel-scroll-slideshow/images/Sing_1.jpg', '#', '_blank', 'Image 1', '1', 'YES', 'GROUP1', '0000-00-00 00:00:00');";
 		$wpdb->query($sSql);
 		
-		$sSql = $IsSql . " VALUES ('".get_option('siteurl')."/wp-content/plugins/image-horizontal-reel-scroll-slideshow/images/250x167_2.jpg' ,'#', '_blank', 'Image 2', '2', 'YES', 'GROUP1', '0000-00-00 00:00:00');";
+		$sSql = $IsSql . " VALUES ('".get_option('siteurl')."/wp-content/plugins/image-horizontal-reel-scroll-slideshow/images/Sing_2.jpg' ,'#', '_blank', 'Image 2', '2', 'YES', 'GROUP1', '0000-00-00 00:00:00');";
 		$wpdb->query($sSql);
 		
-		$sSql = $IsSql . " VALUES ('".get_option('siteurl')."/wp-content/plugins/image-horizontal-reel-scroll-slideshow/images/250x167_3.jpg', '#', '_blank', 'Image 3', '1', 'YES', 'Widget', '0000-00-00 00:00:00');";
+		$sSql = $IsSql . " VALUES ('".get_option('siteurl')."/wp-content/plugins/image-horizontal-reel-scroll-slideshow/images/Sing_3.jpg', '#', '_blank', 'Image 3', '1', 'YES', 'Widget', '0000-00-00 00:00:00');";
 		$wpdb->query($sSql);
 		
-		$sSql = $IsSql . " VALUES ('".get_option('siteurl')."/wp-content/plugins/image-horizontal-reel-scroll-slideshow/images/250x167_4.jpg', '#', '_blank', 'Image 4', '2', 'YES', 'Widget', '0000-00-00 00:00:00');";
+		$sSql = $IsSql . " VALUES ('".get_option('siteurl')."/wp-content/plugins/image-horizontal-reel-scroll-slideshow/images/Sing_4.jpg', '#', '_blank', 'Image 4', '2', 'YES', 'Widget', '0000-00-00 00:00:00');";
 		$wpdb->query($sSql);
 	}
 	add_option('Ihrss_title', "Horizontal Slideshow");
-	add_option('Ihrss_sliderwidth', "600");
-	add_option('Ihrss_sliderheight', "170");
+	add_option('Ihrss_sliderwidth', "400");
+	add_option('Ihrss_sliderheight', "75");
 	add_option('Ihrss_slidespeed', "1");
 	add_option('Ihrss_slidebgcolor', "#ffffff");
 	add_option('Ihrss_slideshowgap', "5");

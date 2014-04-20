@@ -1,12 +1,12 @@
 === Image horizontal reel scroll slideshow ===
 Contributors: www.gopiplus.com, gopiplus
 Donate link: http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
-Author URI: http://www.gopiplus.com/work/
+Author URI: http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 Plugin URI: http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 Tags: Horizontal, Image, Reel, Scroll, Slideshow, Gallery
 Requires at least: 3.4
-Tested up to: 3.8
-Stable tag: 11.0
+Tested up to: 3.9
+Stable tag: 11.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -18,8 +18,7 @@ Check official website for live demo [http://www.gopiplus.com/work/2011/05/08/wo
 
 [Live Demo](http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/)		
 [More Information](http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/)		
-[User Comments](http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/)		
-[About Author](http://www.gopiplus.com/work/)	
+[About Author](http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/)	
 			
 Image horizontal reel scroll slideshow plugin lets you showcase images in a horizontal scroll style. Scroll will start automatically. Slideshow will pause on mouse over. Most of the user requested this type of scroll so I have created this plugin.
 
@@ -33,7 +32,7 @@ Image horizontal reel scroll slideshow plugin lets you showcase images in a hori
 *   Image order option available.
 *   Option to set spacing between images.
 *   Easy to change the background color of scroll.
-*   Supports localization.
+*   Supports localization. Plugin *.po file (ihrss.po) available in the languages folder. 
 
 We have three option to install and configure this Image horizontal reel scroll slideshow plugin. 
 
@@ -82,11 +81,18 @@ http://www.gopiplus.com/work/2011/04/25/wordpress-plugin-up-down-image-slideshow
 
 == Screenshots ==
 
-1. http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
+1. Front End. http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 
-2. http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
+2. Plugin Admin 1. http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
+
+3. Plugin Admin 2. http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 
 == Upgrade Notice ==
+
+= 11.1 =
+
+1. Tested up to 3.9
+2. Added some security feature.
 
 = 11.0 =
 
@@ -153,6 +159,11 @@ Target problem solved.
 First version.
 
 == Changelog ==
+
+= 11.1 =
+
+1. Tested up to 3.9
+2. Added some security feature.
 
 = 11.0 =
 

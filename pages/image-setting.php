@@ -1,3 +1,4 @@
+<?php if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); } ?>
 <div class="wrap">
   <div class="form-wrap">
     <div id="icon-edit" class="icon32 icon32-posts-post"><br>
@@ -90,7 +91,9 @@
 			{ 
 				$thisselected = "selected='selected'" ; 
 			}
-			?><option value='<?php echo strtoupper($DistinctData['Ihrss_type']); ?>' <?php echo $thisselected; ?>><?php echo strtoupper($DistinctData['Ihrss_type']); ?></option><?php
+			?>
+			<option value='<?php echo strtoupper($DistinctData['Ihrss_type']); ?>' <?php echo $thisselected; ?>><?php echo strtoupper($DistinctData['Ihrss_type']); ?></option>
+			<?php
 			$thisselected = "";
 		}
 		?>
