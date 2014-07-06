@@ -106,14 +106,20 @@ if (isset($_POST['frm_Ihrss_display']) && $_POST['frm_Ihrss_display'] == 'yes')
 					<td align="left"><input type="checkbox" value="<?php echo $data['Ihrss_id']; ?>" name="Ihrss_group_item[]"></th>
 					<td>
 					<a href="<?php echo esc_html(stripslashes($data['Ihrss_path'])); ?>" target="_blank">
-					<img title="Click to view image" alt="Click to view image" src="<?php echo WP_IHRSS_PLUGIN_URL; ?>/icon.png" />					
+						<img title="Click to view image" alt="Click to view image" src="<?php echo WP_IHRSS_PLUGIN_URL; ?>/icon.png" />					
 					</a>
-					<div class="row-actions">
-						<span class="edit">
-						<a title="Edit" href="<?php echo WP_IHRSS_ADMIN_URL; ?>&amp;ac=edit&amp;did=<?php echo $data['Ihrss_id']; ?>"><?php _e('Edit', 'ihrss'); ?></a> | </span>
-						<span class="trash">
-						<a onClick="javascript:Ihrss_delete('<?php echo $data['Ihrss_id']; ?>')" href="javascript:void(0);"><?php _e('Delete', 'ihrss'); ?></a></span> 
-					</div>
+					<span class="edit">
+					&nbsp; 
+					<a title="Click to Edit" href="<?php echo WP_IHRSS_ADMIN_URL; ?>&amp;ac=edit&amp;did=<?php echo $data['Ihrss_id']; ?>">
+						<?php _e('Edit', 'ihrss'); ?>
+					</a>  
+					</span>
+					<span class="trash">
+					&nbsp; 
+					<a title="Click to Delete" onClick="javascript:Ihrss_delete('<?php echo $data['Ihrss_id']; ?>')" href="javascript:void(0);">
+						<?php _e('Delete', 'ihrss'); ?>
+					</a>
+					</span> 
 					</td>
 					<td><?php echo esc_html(stripslashes($data['Ihrss_title'])); ?></td>
 					<td><?php echo esc_html(stripslashes($data['Ihrss_type'])); ?></td>

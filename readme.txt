@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horiz
 Plugin URI: http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 Tags: Horizontal, Image, Reel, Scroll, Slideshow, Gallery
 Requires at least: 3.4
-Tested up to: 3.9
-Stable tag: 11.1
+Tested up to: 3.9.1
+Stable tag: 11.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -34,50 +34,44 @@ Image horizontal reel scroll slideshow plugin lets you showcase images in a hori
 *   Easy to change the background color of scroll.
 *   Supports localization. Plugin *.po file (ihrss.po) available in the languages folder. 
 
-We have three option to install and configure this Image horizontal reel scroll slideshow plugin. 
+= Plugin configure = 
 
-http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
+We have three options to install and configure this Image horizontal reel scroll slideshow plugin.
+
+*   Drag and drop the widget to your sidebar
+*   Add the gallery into the posts or pages using shortcode.
+*   Add directly in the theme usinh plugin PHP code.
+
+= Frequently asked questions = 
+
+*   Q1. How to arrange the width & height of the slideshow?
+*   Q2. How to change the slideshow speed?
+*   Q3. Where to upload my image?
+*   Q4. How to group the images for different gallery?
+*   Q5. How the slide show manages the order?
+*   Q6. Is possible to load images in the random order?
+*   Q6. How to setup this plugin in WordPress Multi-Site website?
+
+= Translators =
+
+* English (en_EN) - [Gopi Ramasamy](http://www.gopiplus.com/)
+* Tamil (ta) - [Gopi Ramasamy](http://www.gopiplus.com/)
 
 == Installation ==	
 
-= Installation Instruction & Configuration =  	
-
-**Method 1**	
-
-[File upload using ftp](http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/)	 
- 
-**Method 2**	
-			
-[Direct upload from website admin](http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/)	 
-
-**Method 3**
-
-[Upload from website admin with ZIP file](http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/)	 	
-
-**Configuration**
-
-We have 3 option to configure this plugin [click here](http://www.gopiplus.com/work/2011/04/25/wordpress-plugin-up-down-image-slideshow-script/)  to see more info.	 	
+[Installation Instruction & Configuration](http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/)	
 
 == Frequently Asked Questions ==
 
-Q1. How to arrange the width & height of the slideshow?
-
-Q2. How to change the slideshow speed?
-
-Q3. Where to upload my image?
-
-Q4. How to group the images for different gallery?
-
-Q5. How the slide show manages the order?
-
-Q6. Is possible to load images in the random order?
-
-Q7. How to setup the plugin for network multisite website?
-
-Click the below link to see answer for all questions!			
-More info : [click to go](http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/)		
-
-http://www.gopiplus.com/work/2011/04/25/wordpress-plugin-up-down-image-slideshow-script/	
+*   Q1. How to arrange the width & height of the slideshow?
+*   Q2. How to change the slideshow speed?
+*   Q3. Where to upload my image?
+*   Q4. How to group the images for different gallery?
+*   Q5. How the slide show manages the order?
+*   Q6. Is possible to load images in the random order?
+*   Q6. How to setup this plugin in WordPress Multi-Site website?
+		
+[FAQ Answers](http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/)		
 
 == Screenshots ==
 
@@ -88,6 +82,11 @@ http://www.gopiplus.com/work/2011/04/25/wordpress-plugin-up-down-image-slideshow
 3. Plugin Admin 2. http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 
 == Upgrade Notice ==
+
+= 11.2 =
+
+1. Improved GAP between image option in the gallery. (Previously gap value was used only at the end of the roll, Now slideshow is using gap value between each image in the roll)
+2. Small appearance change in the admin.
 
 = 11.1 =
 
@@ -159,6 +158,11 @@ Target problem solved.
 First version.
 
 == Changelog ==
+
+= 11.2 =
+
+1. Improved GAP between image option in the gallery. (Previously gap value was used only at the end of the roll, Now slideshow is using gap value between each image in the roll)
+2. Small appearance change in the admin.
 
 = 11.1 =
 

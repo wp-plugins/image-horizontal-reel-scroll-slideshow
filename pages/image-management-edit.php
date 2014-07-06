@@ -117,11 +117,11 @@ if ($Ihrss_error_found == FALSE && strlen($Ihrss_success) > 0)
 	<form name="Ihrss_form" method="post" action="#" onsubmit="return Ihrss_submit()"  >
       <h3><?php _e('Update image details', 'ihrss'); ?></h3>
       <label for="tag-image"><?php _e('Enter image path', 'ihrss'); ?></label>
-      <input name="Ihrss_path" type="text" id="Ihrss_path" value="<?php echo esc_html(stripslashes($form['Ihrss_path'])); ?>" size="125" />
+      <input name="Ihrss_path" type="text" id="Ihrss_path" value="<?php echo esc_html(stripslashes($form['Ihrss_path'])); ?>" size="100" />
       <p><?php _e('Where is the picture located on the internet', 'ihrss'); ?></p>
       <label for="tag-link"><?php _e('Enter target link', 'ihrss'); ?></label>
-      <input name="Ihrss_link" type="text" id="Ihrss_link" value="<?php echo esc_html(stripslashes($form['Ihrss_link'])); ?>" size="125" />
-      <p><?php _e('When someone clicks on the picture, where do you want to send them', 'ihrss'); ?></p>
+      <input name="Ihrss_link" type="text" id="Ihrss_link" value="<?php echo esc_html(stripslashes($form['Ihrss_link'])); ?>" size="100" />
+      <p><?php _e('When someone clicks on the picture, where do you want to send them. url must start with either http or https.', 'ihrss'); ?></p>
       <label for="tag-target"><?php _e('Enter target option', 'ihrss'); ?></label>
       <select name="Ihrss_target" id="Ihrss_target">
         <option value='_blank' <?php if($form['Ihrss_target']=='_blank') { echo 'selected' ; } ?>>_blank</option>
@@ -131,7 +131,7 @@ if ($Ihrss_error_found == FALSE && strlen($Ihrss_success) > 0)
       </select>
       <p><?php _e('Do you want to open link in new window?', 'ihrss'); ?></p>
       <label for="tag-title"><?php _e('Enter image reference', 'ihrss'); ?></label>
-      <input name="Ihrss_title" type="text" id="Ihrss_title" value="<?php echo esc_html(stripslashes($form['Ihrss_title'])); ?>" size="125" />
+      <input name="Ihrss_title" type="text" id="Ihrss_title" value="<?php echo esc_html(stripslashes($form['Ihrss_title'])); ?>" size="100" />
       <p><?php _e('Enter image reference. This is only for reference.', 'ihrss'); ?></p>
       <label for="tag-select-gallery-group"><?php _e('Select gallery type', 'ihrss'); ?></label>
       <select name="Ihrss_type" id="Ihrss_type">

@@ -69,11 +69,11 @@
       
 	  <label for="tag-height"><?php _e('Enter slideshow gap', 'ihrss'); ?></label>
       <input name="Ihrss_slideshowgap" id="Ihrss_slideshowgap" type="text" value="<?php echo $Ihrss_slideshowgap; ?>" />
-      <p><?php _e('This is pixels gap between each image in slideshow. (Example: 5)', 'ihrss'); ?></p>
+      <p><?php _e('This is pixels gap between each image in slideshow. Enter only number. (Example: 5)', 'ihrss'); ?></p>
 	  
 	  <label for="tag-height"><?php _e('Enter random display', 'ihrss'); ?></label>
       <input name="Ihrss_random" id="Ihrss_random" type="text" value="<?php echo $Ihrss_random; ?>" />
-      <p><?php _e('This option is to retrieve the images in random order. (Enter: Yes/No Only)', 'ihrss'); ?></p>
+      <p><?php _e('This option is to retrieve the images in random order. (Enter: YES/NO Only)', 'ihrss'); ?></p>
 	  
 	  <label for="tag-height"><?php _e('Select gallery group (Type)', 'ihrss'); ?></label>
       <!--<input name="Ihrss_type" id="Ihrss_type" type="text" value="<?php //echo $Ihrss_type; ?>" />-->
