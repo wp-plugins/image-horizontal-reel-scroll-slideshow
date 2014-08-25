@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horiz
 Plugin URI: http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 Tags: Horizontal, Image, Reel, Scroll, Slideshow, Gallery
 Requires at least: 3.4
-Tested up to: 3.9.1
-Stable tag: 11.2
+Tested up to: 4.0
+Stable tag: 11.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -56,6 +56,7 @@ We have three options to install and configure this Image horizontal reel scroll
 
 * English (en_EN) - [Gopi Ramasamy](http://www.gopiplus.com/)
 * Tamil (ta) - [Gopi Ramasamy](http://www.gopiplus.com/)
+* Serbian (sr_RS) - [Ogi Djuraskovic](http://firstsiteguide.com)
 
 == Installation ==	
 
@@ -82,6 +83,10 @@ We have three options to install and configure this Image horizontal reel scroll
 3. Plugin Admin 2. http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 
 == Upgrade Notice ==
+
+= 11.3 =
+
+1. Tested up to 4.0
 
 = 11.2 =
 
@@ -158,6 +163,10 @@ Target problem solved.
 First version.
 
 == Changelog ==
+
+= 11.3 =
+
+1. Tested up to 4.0
 
 = 11.2 =
 
