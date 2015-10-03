@@ -4,10 +4,12 @@ Plugin Name: Image horizontal reel scroll slideshow
 Plugin URI: http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 Description: Image horizontal reel scroll slideshow lets showcase images in a horizontal move style. This slideshow will pause on mouse over. The speed of the plugin gallery is customizable.
 Author: Gopi Ramasamy
-Version: 11.7
+Version: 11.7.1
 Author URI: http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 Donate link: http://www.gopiplus.com/work/2011/05/08/wordpress-plugin-image-horizontal-reel-scroll-slideshow/
 Tags: Horizontal, Image, Reel, Scroll, Slideshow, Gallery
+Text Domain: image-horizontal-reel-scroll-slideshow
+Domain Path: /languages
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -84,7 +86,7 @@ function Ihrss()
 	}	
 	else
 	{
-		_e('No images available in this Gallery Type. Please check admin setting.', 'ihrss');;
+		_e('No images available in this Gallery Type. Please check admin setting.', 'image-horizontal-reel-scroll-slideshow');;
 	}
 }
 
@@ -137,10 +139,10 @@ function Ihrss_install()
 function Ihrss_control() 
 {
 	echo '<p><b>';
-	 _e('Image horizontal reel scroll slideshow', 'ihrss');
+	 _e('Image horizontal reel scroll slideshow', 'image-horizontal-reel-scroll-slideshow');
 	echo '.</b> ';
-	_e('Check official website for more information', 'ihrss');
-	?> <a target="_blank" href="<?php echo WP_Ihrss_FAV; ?>"><?php _e('click here', 'ihrss'); ?></a></p><?php
+	_e('Check official website for more information', 'image-horizontal-reel-scroll-slideshow');
+	?> <a target="_blank" href="<?php echo WP_Ihrss_FAV; ?>"><?php _e('click here', 'image-horizontal-reel-scroll-slideshow'); ?></a></p><?php
 }
 
 function Ihrss_widget($args) 
@@ -237,7 +239,7 @@ function Ihrss_shortcode( $atts )
 	}	
 	else
 	{
-		$Ihrss = $Ihrss . __('No images available in this Gallery Type. Please check admin setting.', 'ihrss');
+		$Ihrss = $Ihrss . __('No images available in this Gallery Type. Please check admin setting.', 'image-horizontal-reel-scroll-slideshow');
 	}
 	return $Ihrss;
 }
@@ -246,8 +248,8 @@ function Ihrss_add_to_menu()
 {
 	if (is_admin()) 
 	{
-		add_options_page(__('Image horizontal reel scroll slideshow', 'ihrss'), 
-							__('Image horizontal reel scroll slideshow', 'ihrss'), 'manage_options', "image-horizontal-reel-scroll-slideshow", 'Ihrss_admin_options' );
+		add_options_page(__('Image horizontal reel scroll slideshow', 'image-horizontal-reel-scroll-slideshow'), 
+							__('Image horizontal reel scroll slideshow', 'image-horizontal-reel-scroll-slideshow'), 'manage_options', "image-horizontal-reel-scroll-slideshow", 'Ihrss_admin_options' );
 	}
 }
 
@@ -255,12 +257,12 @@ function Ihrss_init()
 {
 	if(function_exists('wp_register_sidebar_widget')) 
 	{
-		wp_register_sidebar_widget('Image-horizontal-reel-scroll-slideshow', __('Image horizontal reel scroll slideshow', 'ihrss'), 'Ihrss_widget');
+		wp_register_sidebar_widget('Image-horizontal-reel-scroll-slideshow', __('Image horizontal reel scroll slideshow', 'image-horizontal-reel-scroll-slideshow'), 'Ihrss_widget');
 	}
 	
 	if(function_exists('wp_register_widget_control')) 
 	{
-		wp_register_widget_control('Image-horizontal-reel-scroll-slideshow', array(__('Image horizontal reel scroll slideshow', 'ihrss'), 'widgets'), 'Ihrss_control');
+		wp_register_widget_control('Image-horizontal-reel-scroll-slideshow', array(__('Image horizontal reel scroll slideshow', 'image-horizontal-reel-scroll-slideshow'), 'widgets'), 'Ihrss_control');
 	} 
 }
 
@@ -271,7 +273,7 @@ function Ihrss_deactivation()
 
 function Ihrss_textdomain() 
 {
-	  load_plugin_textdomain( 'ihrss', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	  load_plugin_textdomain( 'image-horizontal-reel-scroll-slideshow', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
 
 add_action('plugins_loaded', 'Ihrss_textdomain');
